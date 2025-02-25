@@ -1,5 +1,6 @@
 package com.example.springemployeepayrollapp.controller;
 
+import com.example.springemployeepayrollapp.dto.EmployeeDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +17,8 @@ public class EmployeePayrollController {
     }
 
     @PostMapping("/add")
-    public String addEmployee() {
-        return "Employee added successfully!";
+    public EmployeeDTO addEmployee(@RequestBody EmployeeDTO employee) {
+        return new EmployeeDTO(employee.getName(), employee.getSalary());
     }
 
     @PutMapping("/update")
