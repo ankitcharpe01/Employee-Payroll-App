@@ -1,0 +1,27 @@
+2025-02-28 14:40:03 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'logging.level.com.example' to org.springframework.boot.logging.LogLevel:
+
+    Property: logging.level.com.example
+    Value: "DEBUG  # Set DEBUG level for your package"
+    Origin: class path resource [application.properties] - 17:27
+    Reason: failed to convert java.lang.String to org.springframework.boot.logging.LogLevel (caused by java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.DEBUG  # Set DEBUG level for your package)
+
+Action:
+
+Update your application's configuration. The following values are valid:
+
+    DEBUG
+    ERROR
+    FATAL
+    INFO
+    OFF
+    TRACE
+    WARN
+

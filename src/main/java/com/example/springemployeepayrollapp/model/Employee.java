@@ -1,9 +1,7 @@
 package com.example.springemployeepayrollapp.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
@@ -15,9 +13,9 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
     private String name;
+
     @Column(name = "salary", nullable = false)
-    private double salary;
+    private long salary;
 
 }
