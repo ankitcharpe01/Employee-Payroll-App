@@ -2,11 +2,13 @@ package com.example.springemployeepayrollapp.service;
 
 import com.example.springemployeepayrollapp.dto.EmployeeDTO;
 import com.example.springemployeepayrollapp.model.Employee;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class EmployeeService {
 
     private final List<Employee> employeeList = new ArrayList<>();
@@ -16,16 +18,19 @@ public class EmployeeService {
     public EmployeeDTO addEmployee(EmployeeDTO employeeDTO) {
         Employee employee = new Employee(idCounter++, employeeDTO.getName(), employeeDTO.getSalary());
         employeeList.add(employee);
+        log.info("ADDED EMPLOYEE");
         return new EmployeeDTO(employee.getName(), employee.getSalary());
     }
 
     // Get all Employees
     public List<Employee> getAllEmployees() {
+        log.info("GET ALL EMPLOYEES");
         return employeeList;
     }
 
     // Get Employee by ID
     public Employee getEmployeeById(Long id) {
+        log.info("GET EMPLOYEE BY ID");
         for (Employee emp : employeeList) {
             if (emp.getId().equals(id)) {
                 return emp;
@@ -40,9 +45,11 @@ public class EmployeeService {
             if (emp.getId().equals(id)) {
                 emp.setName(employeeDTO.getName());
                 emp.setSalary(employeeDTO.getSalary());
+                log.info("UPDATED EMPLOYEE");
                 return new EmployeeDTO(emp.getName(), emp.getSalary());
             }
         }
+        log.warn("EMPLOYEE NOT EXISTING");
         return null;
     }
 
@@ -51,6 +58,7 @@ public class EmployeeService {
         for (Employee emp : employeeList) {
             if (emp.getId().equals(id)) {
                 employeeList.remove(emp);
+                log.info("DELETED EMPLOYEE");
                 return true;
             }
         }
