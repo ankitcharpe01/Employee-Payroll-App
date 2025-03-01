@@ -102,4 +102,9 @@ public class EmployeeService {
                 employee.getDepartment()
         );
     }
+
+    public List<Employee> getEmployeesByDepartment(String department) {
+        log.info("Fetching employees in department: {}", department);
+        return employeeRepository.findEmployeesByDepartment(department);
+    }
 }
