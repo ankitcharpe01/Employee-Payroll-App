@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Slf4j
@@ -34,7 +33,7 @@ public class EmployeePayrollController {
         return ResponseEntity.ok(savedEmployee);
     }
 
-    // Get all Employees
+    // Get All Employees
     @GetMapping
     public ResponseEntity<List<Employee>> getAllEmployees() {
         log.info("Fetching all employees");
@@ -60,7 +59,7 @@ public class EmployeePayrollController {
         return ResponseEntity.ok(updatedEmployee);
     }
 
-    // Delete Employee
+    // Delete Employee By Id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
         log.warn("Received request to delete employee with ID: {}", id);
